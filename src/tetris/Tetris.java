@@ -23,6 +23,7 @@ public class Tetris {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(logo.getImage());
 		frame.add(panel);
+		frame.addKeyListener(panel);
 		
 		frame.pack();
 	}

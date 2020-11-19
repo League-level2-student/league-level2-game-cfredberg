@@ -12,7 +12,16 @@ import javax.swing.JPanel;
 
 public class GamePanelTetris extends JPanel implements ActionListener, KeyListener {
 
-	Font text = new Font("Arial", Font.BOLD, 35);
+	Font header = new Font("Arial", Font.BOLD, 35);
+	Font instructions = new Font("Arial", Font.BOLD, 20);
+	Font smallInstructions = new Font("Arial", Font.BOLD, 15);
+	
+	final int MENU = 0;
+	final int INST = 1;
+	final int GAME = 2;
+	final int END = 3;
+	
+	int currentState = MENU;
 	
 	public GamePanelTetris() {
 		
@@ -20,7 +29,16 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	@Override
 	public void paintComponent(Graphics g) {
-		drawMenuState(g);
+		if(currentState == MENU){
+		    drawMenuState(g);
+		}else if (currentState == INST){
+			drawInstructionState(g);
+		}else if(currentState == GAME){
+		    drawGameState(g);
+		}else if(currentState == END){
+		    drawEndState(g);
+		}
+		
 	}
 	
 	public void drawMenuState (Graphics g) {
@@ -31,15 +49,52 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.fillOval(70, 40, 150, 80);
 		
 		g.setColor(Color.BLACK);
-		g.setFont(text);
+		g.setFont(header);
 		g.drawString("TETRIS", 80, 90);
+		
+		g.setFont(instructions);
+		g.drawString("Press 'P' to play.", 65, 300);
+		g.drawString("Press 'I' for instructions.", 30, 350);
+	}
+	
+	public void drawInstructionState (Graphics g) {
+		g.setColor(new Color(0, 52, 179));
+		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
+		
+		g.setColor(Color.CYAN);
+		g.fillOval(5, 40, 280, 80);
+		
+		g.setColor(Color.BLACK);
+		g.setFont(header);
+		g.drawString("INSTRUCTIONS", 15, 90);
+		
+		g.setFont(smallInstructions);
+		g.drawString("Use the left and right arrow keys", 25, 200);
+		g.drawString("to move each tile left and right.", 30, 215);
 	}
 	
 	public void drawGameState (Graphics g) {
+		g.setColor(new Color(0, 52, 179));
+		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
 		
+		int x = 50;
+		int y = 50;
+		for (int i = 0; i < 25; i++) {
+			for (int p = 0; p < 10; p++) {
+				g.setColor(Color.CYAN);
+				g.drawRect(x, y, 20, 20);
+				x = x + 20;
+			}
+			x = 50;
+			y = y + 20;
+		}
 	}
 	
 	public void drawEndState (Graphics g) {
+		
+	}
+	
+	public void updateGameState() {
 		
 	}
 	
@@ -52,7 +107,13 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_I) {
+			currentState = INST;
+			repaint();
+		}else if (e.getKeyCode()==KeyEvent.VK_P) {
+			currentState = GAME;
+			repaint();
+		}
 	}
 
 	@Override
@@ -64,6 +125,9 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if (currentState == GAME) {
+			updateGameState();
+		}
 		
 	}
 	
