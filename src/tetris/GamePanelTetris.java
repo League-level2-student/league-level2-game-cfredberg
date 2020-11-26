@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -22,6 +23,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final int END = 3;
 	
 	int currentState = MENU;
+	
+	int x = 10;
+	int y = 10;
+	
+	Random rnd = new Random();
 	
 	public GamePanelTetris() {
 		
@@ -71,23 +77,29 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.setFont(smallInstructions);
 		g.drawString("Use the left and right arrow keys", 25, 200);
 		g.drawString("to move each tile left and right.", 30, 215);
+		
+		g.setColor(Color.ORANGE);
+		g.drawString("Press 'Escape' to go back to the menu.", 0, 560);
 	}
 	
 	public void drawGameState (Graphics g) {
 		g.setColor(new Color(0, 52, 179));
 		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
 		
-		int x = 50;
-		int y = 50;
+		int x1 = x;
+		
+		g.setColor(Color.CYAN);
 		for (int i = 0; i < 25; i++) {
 			for (int p = 0; p < 10; p++) {
-				g.setColor(Color.CYAN);
 				g.drawRect(x, y, 20, 20);
 				x = x + 20;
 			}
-			x = 50;
+			x = x1;
 			y = y + 20;
 		}
+		g.setFont(instructions);
+		g.drawString("NEXT:", 220, 90);
+		g.drawRect(220, 100, 50, 50);
 	}
 	
 	public void drawEndState (Graphics g) {
@@ -95,6 +107,10 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void updateGameState() {
+		
+	}
+	
+	public void getBlock() {
 		
 	}
 	
@@ -107,11 +123,14 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getKeyCode()==KeyEvent.VK_I) {
+		if (e.getKeyCode()==KeyEvent.VK_I && currentState == MENU) {
 			currentState = INST;
 			repaint();
-		}else if (e.getKeyCode()==KeyEvent.VK_P) {
+		}else if (e.getKeyCode()==KeyEvent.VK_P && currentState == MENU) {
 			currentState = GAME;
+			repaint();
+		}else if (e.getKeyCode()==KeyEvent.VK_ESCAPE && currentState == INST) {
+			currentState = MENU;
 			repaint();
 		}
 	}
