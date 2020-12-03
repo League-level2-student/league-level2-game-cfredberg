@@ -29,6 +29,12 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	Random rnd = new Random();
 	
+	Block block = new Block (0, 0);
+	
+	Row5 row5 = new Row5(0, 0);
+	
+	ObjectManager objm = new ObjectManager(row5);
+	
 	public GamePanelTetris() {
 		
 	}
@@ -107,7 +113,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void updateGameState() {
-		
+		objm.update();
 	}
 	
 	public void getBlock() {

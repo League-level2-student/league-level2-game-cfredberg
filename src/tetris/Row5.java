@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Row5 extends Block {
 
-	public Row5(int x, int y) {
-		super(x, y);
+	public Row5(int row, int column) {
+		super(row, column);
 		// TODO Auto-generated constructor stub
 	}
 	
