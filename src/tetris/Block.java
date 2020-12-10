@@ -1,5 +1,8 @@
 package tetris;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public class Block {
 	final int BLOCK_WIDTH = 20;
 	final int BLOCK_HEIGHT = 20;
@@ -12,9 +15,21 @@ public class Block {
 	public Block(int row, int column) {
 		this.row = row;
 		this.column = column;
+		x = calculator(row);
+		y = calculator(column);
+	}
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.RED);
+		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+		y+=20;
 	}
 	
 	public void update() {
+		
+	}
+	
+	public void stop() {
 		
 	}
 	

@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 import java.util.Random;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class GamePanelTetris extends JPanel implements ActionListener, KeyListener {
 
@@ -22,6 +23,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final int GAME = 2;
 	final int END = 3;
 	
+	Timer frameDraw;
+	
 	int currentState = MENU;
 	
 	int x = 10;
@@ -29,14 +32,15 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	Random rnd = new Random();
 	
-	Block block = new Block (0, 0);
+	Block block = new Block (1, 0);
 	
 	Row5 row5 = new Row5(0, 0);
 	
 	ObjectManager objm = new ObjectManager(row5);
 	
 	public GamePanelTetris() {
-		
+		frameDraw = new Timer(1000/3,this);
+	    frameDraw.start();
 	}
 	
 	@Override
@@ -46,7 +50,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}else if (currentState == INST){
 			drawInstructionState(g);
 		}else if(currentState == GAME){
-		    drawGameState(g);
+			drawGameState(g);
 		}else if(currentState == END){
 		    drawEndState(g);
 		}
@@ -93,6 +97,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
 		
 		int x1 = x;
+		int y1 = y;
 		
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 25; i++) {
@@ -103,9 +108,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			x = x1;
 			y = y + 20;
 		}
+		y = y1;
 		g.setFont(instructions);
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
+		block.draw(g);
 	}
 	
 	public void drawEndState (Graphics g) {
@@ -131,13 +138,10 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		// TODO Auto-generated method stub
 		if (e.getKeyCode()==KeyEvent.VK_I && currentState == MENU) {
 			currentState = INST;
-			repaint();
 		}else if (e.getKeyCode()==KeyEvent.VK_P && currentState == MENU) {
 			currentState = GAME;
-			repaint();
 		}else if (e.getKeyCode()==KeyEvent.VK_ESCAPE && currentState == INST) {
 			currentState = MENU;
-			repaint();
 		}
 	}
 
@@ -150,10 +154,10 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (currentState == GAME) {
-			updateGameState();
+		if(currentState == GAME){
+		    updateGameState();
 		}
-		
+		repaint();
 	}
 	
 }
