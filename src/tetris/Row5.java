@@ -11,7 +11,7 @@ public class Row5 extends Block {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.RED);
+		g.setColor(Color.BLUE);
 		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 	}
 }

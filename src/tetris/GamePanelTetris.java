@@ -30,13 +30,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	int x = 10;
 	int y = 10;
 	
-	Random rnd = new Random();
+	Block block = new Block (4, 0);
 	
-	Block block = new Block (1, 0);
+	//Row5 row5 = new Row5(0, 0);
 	
-	Row5 row5 = new Row5(0, 0);
-	
-	ObjectManager objm = new ObjectManager(row5);
+	//ObjectManager objm = new ObjectManager(row5);
 	
 	public GamePanelTetris() {
 		frameDraw = new Timer(1000/3,this);
@@ -113,6 +111,17 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
 		block.draw(g);
+		if (block.isMove == true) {
+			block.down();
+		}
+		
+		if (block.column == 24) {
+			block.stop();
+		}
+		
+		if (block.isMove == false) {
+			block = new Row5(4,0);
+		}
 	}
 	
 	public void drawEndState (Graphics g) {
@@ -120,11 +129,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void updateGameState() {
-		objm.update();
-	}
-	
-	public void getBlock() {
-		
+		//objm.update();
 	}
 	
 	@Override
@@ -142,6 +147,28 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			currentState = GAME;
 		}else if (e.getKeyCode()==KeyEvent.VK_ESCAPE && currentState == INST) {
 			currentState = MENU;
+		}
+		
+		if (currentState == GAME) {
+			if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+				block.left();
+			}
+			
+			if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+				block.right();
+			}
+			
+			if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+				block.down();
+			}
+			
+			if (e.getKeyCode()==KeyEvent.VK_UP) {
+				//Rotate object
+			}
+			
+			if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+				block.column = 23;
+			}
 		}
 	}
 

@@ -12,6 +12,8 @@ public class Block {
 	
 	int row;
 	int column;
+	
+	boolean isMove = true;
 	public Block(int row, int column) {
 		this.row = row;
 		this.column = column;
@@ -22,7 +24,6 @@ public class Block {
 	public void draw(Graphics g) {
 		g.setColor(Color.RED);
 		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
-		y+=20;
 	}
 	
 	public void update() {
@@ -30,11 +31,15 @@ public class Block {
 	}
 	
 	public void stop() {
+		isMove = false;
+	}
+	
+	public void checkCollision() {
 		
 	}
 	
 	public void down() {
-		column = column - 1;
+		column = column + 1;
 		y = calculator(column);
 	}
 	
