@@ -11,7 +11,11 @@ public class Row5 extends Block {
 	}
 	
 	public void draw(Graphics g) {
+		int d = 0;
 		g.setColor(Color.BLUE);
-		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+		for (int i = 0; i < 5; i++) {
+			g.fillRect(d*BLOCK_WIDTH+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			d++;
+		}
 	}
 }

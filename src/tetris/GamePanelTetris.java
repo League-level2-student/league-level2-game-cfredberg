@@ -120,7 +120,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}
 		
 		if (block.isMove == false) {
-			block = new Row5(4,0);
+			block = new TBlock(4,0);
 		}
 	}
 	
