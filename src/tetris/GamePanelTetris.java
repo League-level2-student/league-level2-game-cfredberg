@@ -27,10 +27,18 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	int currentState = MENU;
 	
+	final int BL = 0;
+	final int BLWT = 1;
+	final int LB = 2;
+	final int LWT = 3;
+	final int R5 = 4;
+	final int TB = 5;
+	final int TBT = 6;
+	
 	int x = 10;
 	int y = 10;
 	
-	Block block = new Block (4, 0);
+	Block block;
 	
 	//Row5 row5 = new Row5(0, 0);
 	
@@ -39,6 +47,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	public GamePanelTetris() {
 		frameDraw = new Timer(1000/3,this);
 	    frameDraw.start();
+	    
+	    randomShape();
 	}
 	
 	@Override
@@ -120,7 +130,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}
 		
 		if (block.isMove == false) {
-			block = new TBlock(4,0);
+			//randomShape();
 		}
 	}
 	
@@ -130,6 +140,26 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	public void updateGameState() {
 		//objm.update();
+	}
+	
+	public void randomShape() {
+		Random rnd = new Random();
+		int rndBlock = rnd.nextInt(7);
+		if (rndBlock == BL) {
+			block = new BackwardsL(4,0);
+		}else if (rndBlock == BLWT) {
+			block = new BackwardsLWithTip(4,0);
+		}else if (rndBlock == LB) {
+			block = new LBlock(4,0);
+		}else if (rndBlock == LWT) {
+			block = new LWithTip(4,0);
+		}else if (rndBlock == R5) {
+			block = new Row5(4,0);
+		}else if (rndBlock == TB) {
+			block = new TBlock(4,0);
+		}else if (rndBlock == TBT) {
+			block = new TwoByTwo(4,0);
+		}
 	}
 	
 	@Override

@@ -26,5 +26,12 @@ public class TwoByTwo extends Block {
 			}
 		}
 	}
+	
+	public void checkBottom() {
+		if (column == 22) {
+			stop();
+		}
+	}
+
 
 }

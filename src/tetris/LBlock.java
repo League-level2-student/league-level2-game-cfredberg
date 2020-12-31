@@ -22,4 +22,11 @@ public class LBlock extends Block {
 			}
 		}
 	}
+	
+	public void checkBottom() {
+		if (column == 22) {
+			stop();
+		}
+	}
+
 }

@@ -18,4 +18,11 @@ public class Row5 extends Block {
 			d++;
 		}
 	}
+	
+	public void checkBottom() {
+		if (column == 22) {
+			stop();
+		}
+	}
+
 }

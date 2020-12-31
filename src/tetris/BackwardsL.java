@@ -9,7 +9,7 @@ public class BackwardsL extends Block {
 		super(row, column);
 		// TODO Auto-generated constructor stub
 	}
-	
+	//Main block is top block
 	public void draw(Graphics g) {
 		int d = 0;
 		g.setColor(Color.CYAN);
@@ -20,6 +20,12 @@ public class BackwardsL extends Block {
 			}else {
 				g.fillRect(x-BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
+		}
+	}
+	
+	public void checkBottom() {
+		if (column == 22) {
+			stop();
 		}
 	}
 
