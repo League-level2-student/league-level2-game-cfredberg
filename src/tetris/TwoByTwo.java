@@ -7,6 +7,7 @@ public class TwoByTwo extends Block {
 
 	public TwoByTwo(int row, int column) {
 		super(row, column);
+		stopPlace = 23;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -27,8 +28,9 @@ public class TwoByTwo extends Block {
 		}
 	}
 	
+	@Override
 	public void checkBottom() {
-		if (column == 22) {
+		if (column == stopPlace) {
 			stop();
 		}
 	}

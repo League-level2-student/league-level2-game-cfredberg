@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -39,6 +40,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	int y = 10;
 	
 	Block block;
+	
+	ArrayList<Block> oldBlocks = new ArrayList<Block>();
 	
 	//Row5 row5 = new Row5(0, 0);
 	
@@ -121,16 +124,20 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
 		block.draw(g);
+		
+		for (int i = 0; i < oldBlocks.size(); i++) {
+			oldBlocks.get(i).draw(g);
+		}
+		
 		if (block.isMove == true) {
 			block.down();
 		}
 		
-		if (block.column == 24) {
-			block.stop();
-		}
+		block.checkBottom();
 		
 		if (block.isMove == false) {
-			//randomShape();
+			oldBlocks.add(block);
+			randomShape();
 		}
 	}
 	
@@ -197,7 +204,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-				block.column = 23;
+				block.column = block.stopPlace-1;
 			}
 		}
 	}

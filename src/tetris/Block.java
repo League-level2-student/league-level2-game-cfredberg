@@ -12,6 +12,7 @@ public class Block {
 	
 	int row;
 	int column;
+	int stopPlace;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {
@@ -32,6 +33,10 @@ public class Block {
 	
 	public void stop() {
 		isMove = false;
+	}
+	
+	public void checkBottom() {
+		
 	}
 	
 	public void checkCollision() {

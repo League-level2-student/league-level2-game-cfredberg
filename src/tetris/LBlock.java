@@ -7,6 +7,7 @@ public class LBlock extends Block {
 
 	public LBlock(int row, int column) {
 		super(row, column);
+		stopPlace = 22;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -23,10 +24,10 @@ public class LBlock extends Block {
 		}
 	}
 	
+	@Override
 	public void checkBottom() {
-		if (column == 22) {
+		if (column == stopPlace) {
 			stop();
 		}
 	}
-
 }

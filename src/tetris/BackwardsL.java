@@ -7,6 +7,7 @@ public class BackwardsL extends Block {
 
 	public BackwardsL(int row, int column) {
 		super(row, column);
+		stopPlace = 22;
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block
@@ -23,8 +24,9 @@ public class BackwardsL extends Block {
 		}
 	}
 	
+	@Override
 	public void checkBottom() {
-		if (column == 22) {
+		if (column == stopPlace) {
 			stop();
 		}
 	}

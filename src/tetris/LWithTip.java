@@ -7,6 +7,7 @@ public class LWithTip extends Block {
 
 	public LWithTip(int row, int column) {
 		super(row, column);
+		stopPlace = 22;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -26,8 +27,9 @@ public class LWithTip extends Block {
 		}
 	}
 	
+	@Override
 	public void checkBottom() {
-		if (column == 22) {
+		if (column == stopPlace) {
 			stop();
 		}
 	}
