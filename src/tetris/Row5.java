@@ -8,6 +8,8 @@ public class Row5 extends Block {
 	public Row5(int row, int column) {
 		super(row, column);
 		stopPlace = 24;
+		checkLeft = 0;
+		checkRight = 5;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -26,5 +28,4 @@ public class Row5 extends Block {
 			stop();
 		}
 	}
-
 }

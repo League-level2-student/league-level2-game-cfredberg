@@ -8,6 +8,8 @@ public class BackwardsLWithTip extends Block {
 	public BackwardsLWithTip(int row, int column) {
 		super(row, column);
 		stopPlace = 22;
+		checkRight = 9;
+		checkLeft = 1;
 		// TODO Auto-generated constructor stub
 	}
 	

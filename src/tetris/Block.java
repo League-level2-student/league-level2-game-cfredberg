@@ -13,6 +13,8 @@ public class Block {
 	int row;
 	int column;
 	int stopPlace;
+	int checkLeft;
+	int checkRight;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {

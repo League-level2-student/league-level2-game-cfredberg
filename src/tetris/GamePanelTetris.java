@@ -137,6 +137,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		
 		if (block.isMove == false) {
 			oldBlocks.add(block);
+			
 			randomShape();
 		}
 	}
@@ -188,15 +189,21 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		
 		if (currentState == GAME) {
 			if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-				block.left();
+				if (block.row > block.checkLeft) {
+					block.left();
+				}
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-				block.right();
+				if (block.row < block.checkRight) {
+					block.right();
+				}
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-				block.down();
+				if (block.column < block.stopPlace-1) {
+					block.down();
+				}
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_UP) {

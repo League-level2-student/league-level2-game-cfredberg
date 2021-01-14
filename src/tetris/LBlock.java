@@ -8,6 +8,8 @@ public class LBlock extends Block {
 	public LBlock(int row, int column) {
 		super(row, column);
 		stopPlace = 22;
+		checkRight = 8;
+		checkLeft = 0;
 		// TODO Auto-generated constructor stub
 	}
 	

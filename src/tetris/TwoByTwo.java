@@ -8,6 +8,8 @@ public class TwoByTwo extends Block {
 	public TwoByTwo(int row, int column) {
 		super(row, column);
 		stopPlace = 23;
+		checkRight = 9;
+		checkLeft = 1;
 		// TODO Auto-generated constructor stub
 	}
 	
