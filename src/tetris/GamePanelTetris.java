@@ -24,6 +24,15 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final int GAME = 2;
 	final int END = 3;
 	
+	final int MAGENTA = 0;
+	final int YELLOW = 1;
+	final int GREEN = 2;
+	final int BLUE = 3;
+	final int BLACK = 4;
+	final int PINK = 5;
+	final int CYAN = 6;
+	final int BACKGROUND = 7;
+	
 	Timer frameDraw;
 	
 	int currentState = MENU;
@@ -42,6 +51,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	Block block;
 	
 	ArrayList<Block> oldBlocks = new ArrayList<Block>();
+	int[][] map;
 	
 	//Row5 row5 = new Row5(0, 0);
 	
@@ -52,6 +62,14 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    frameDraw.start();
 	    
 	    randomShape();
+	    
+	    map = new int[10][25];
+	    
+	    for (int i = 0; i < map.length; i++) {
+	    	for (int j = 0; j < map[0].length; j++) {
+	    		map[i][j] = BACKGROUND;
+	    	}
+	    }
 	}
 	
 	@Override
@@ -120,6 +138,18 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			y = y + 20;
 		}
 		y = y1;
+		
+		for (int i = 0; i < map.length; i++) {
+	    	for (int j = 0; j < map[0].length; j++) {
+	    		switch (map[i][j]) {
+	    		case BACKGROUND:
+	    			g.setColor(new Color(0, 52, 179));
+	    			break;
+	    			
+	    		}
+	    	}
+	    }
+		
 		g.setFont(instructions);
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
