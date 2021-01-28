@@ -10,6 +10,7 @@ public class Row5 extends Block {
 		stopPlace = 24;
 		checkLeft = 0;
 		checkRight = 5;
+		color = GamePanelTetris.BLUE;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -27,5 +28,10 @@ public class Row5 extends Block {
 		if (column == stopPlace) {
 			stop();
 		}
+	}
+	
+	@Override
+	public void mapping() {
+		
 	}
 }

@@ -10,6 +10,7 @@ public class LWithTip extends Block {
 		stopPlace = 22;
 		checkRight = 8;
 		checkLeft = 0;
+		color = GamePanelTetris.GREEN;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -36,5 +37,9 @@ public class LWithTip extends Block {
 		}
 	}
 
+	@Override
+	public void mapping() {
+		
+	}
 
 }

@@ -10,6 +10,7 @@ public class BackwardsLWithTip extends Block {
 		stopPlace = 22;
 		checkRight = 9;
 		checkLeft = 1;
+		color = GamePanelTetris.MAGENTA;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -33,6 +34,22 @@ public class BackwardsLWithTip extends Block {
 	public void checkBottom() {
 		if (column == stopPlace) {
 			stop();
+		}
+	}
+	
+	@Override
+	public void mapping() {
+		int xd = row;
+		int yd = column;
+		for (int i = 0; i < 4; i++) {
+			GamePanelTetris.map[xd][yd] = color;
+			if (i == 0) {
+				yd++;
+			}else if (i == 1) {
+				xd--;
+			}else if (i == 2) {
+				yd++;
+			}
 		}
 	}
 

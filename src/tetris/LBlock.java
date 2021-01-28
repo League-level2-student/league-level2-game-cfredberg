@@ -10,6 +10,7 @@ public class LBlock extends Block {
 		stopPlace = 22;
 		checkRight = 8;
 		checkLeft = 0;
+		color = GamePanelTetris.YELLOW;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -31,5 +32,10 @@ public class LBlock extends Block {
 		if (column == stopPlace) {
 			stop();
 		}
+	}
+	
+	@Override
+	public void mapping() {
+		
 	}
 }

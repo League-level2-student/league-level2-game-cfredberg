@@ -24,14 +24,14 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final int GAME = 2;
 	final int END = 3;
 	
-	final int MAGENTA = 0;
-	final int YELLOW = 1;
-	final int GREEN = 2;
-	final int BLUE = 3;
-	final int BLACK = 4;
-	final int PINK = 5;
-	final int CYAN = 6;
-	final int BACKGROUND = 7;
+	final static int MAGENTA = 0;
+	final static int YELLOW = 1;
+	final static int GREEN = 2;
+	final static int BLUE = 3;
+	final static int BLACK = 4;
+	final static int PINK = 5;
+	final static int CYAN = 6;
+	final static int BACKGROUND = 7;
 	
 	Timer frameDraw;
 	
@@ -51,7 +51,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	Block block;
 	
 	ArrayList<Block> oldBlocks = new ArrayList<Block>();
-	int[][] map;
+	static int[][] map;
 	
 	//Row5 row5 = new Row5(0, 0);
 	
@@ -61,7 +61,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		frameDraw = new Timer(1000/3,this);
 	    frameDraw.start();
 	    
-	    randomShape();
+	    //randomShape();
+	    block = new BackwardsLWithTip(4,0);
 	    
 	    map = new int[10][25];
 	    
@@ -122,8 +123,43 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void drawGameState (Graphics g) {
+		//Background
 		g.setColor(new Color(0, 52, 179));
 		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
+		
+		for (int i = 0; i < map.length; i++) {
+	    	for (int j = 0; j < map[0].length; j++) {
+	    		switch (map[i][j]) {
+	    		case BACKGROUND:
+	    			g.setColor(new Color(0, 52, 179));
+	    			break;
+	    		case MAGENTA:
+	    			g.setColor(Color.MAGENTA);
+	    			break;
+	    		case YELLOW:
+	    			g.setColor(Color.YELLOW);
+	    			break;
+	    		case GREEN:
+	    			g.setColor(Color.GREEN);
+	    			break;
+	    		case BLUE:
+	    			g.setColor(Color.BLUE);
+	    			break;
+	    		case BLACK:
+	    			g.setColor(Color.BLACK);
+	    			break;
+	    		case PINK:
+	    			g.setColor(Color.PINK);
+	    			break;
+	    		case CYAN:
+	    			g.setColor(Color.CYAN);
+	    			break;
+	    		}
+	    		g.fillRect(calculator(i), calculator(j), 20, 20);
+	    	}
+	    }
+		
+		//Grid
 		
 		int x1 = x;
 		int y1 = y;
@@ -138,17 +174,6 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			y = y + 20;
 		}
 		y = y1;
-		
-		for (int i = 0; i < map.length; i++) {
-	    	for (int j = 0; j < map[0].length; j++) {
-	    		switch (map[i][j]) {
-	    		case BACKGROUND:
-	    			g.setColor(new Color(0, 52, 179));
-	    			break;
-	    			
-	    		}
-	    	}
-	    }
 		
 		g.setFont(instructions);
 		g.drawString("NEXT:", 220, 90);
@@ -166,8 +191,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		block.checkBottom();
 		
 		if (block.isMove == false) {
-			oldBlocks.add(block);
-			
+			//oldBlocks.add(block);
+			block.mapping();
 			randomShape();
 		}
 	}
@@ -260,5 +285,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}
 		repaint();
 	}
+	
+	public int calculator(int RoC) {
+		return (RoC + 1) * 20 - 10;
+	}
+	
+	
 	
 }

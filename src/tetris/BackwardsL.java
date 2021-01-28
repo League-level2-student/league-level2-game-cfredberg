@@ -10,6 +10,7 @@ public class BackwardsL extends Block {
 		stopPlace = 22;
 		checkRight = 9;
 		checkLeft = 1;
+		color = GamePanelTetris.CYAN;
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block
@@ -32,5 +33,10 @@ public class BackwardsL extends Block {
 			stop();
 		}
 	}
-
+	
+	@Override
+	public void mapping() {
+		
+	}
+	
 }

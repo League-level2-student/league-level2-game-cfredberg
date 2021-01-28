@@ -10,6 +10,7 @@ public class TwoByTwo extends Block {
 		stopPlace = 23;
 		checkRight = 9;
 		checkLeft = 1;
+		color = GamePanelTetris.PINK;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -37,5 +38,8 @@ public class TwoByTwo extends Block {
 		}
 	}
 
-
+	@Override
+	public void mapping() {
+		
+	}
 }

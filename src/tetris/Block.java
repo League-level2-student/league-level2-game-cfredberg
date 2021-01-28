@@ -15,6 +15,7 @@ public class Block {
 	int stopPlace;
 	int checkLeft;
 	int checkRight;
+	int color;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {
@@ -62,5 +63,9 @@ public class Block {
 	
 	public int calculator(int RoC) {
 		return (RoC + 1) * 20 - 10;
+	}
+	
+	public void mapping() {
+		
 	}
 }

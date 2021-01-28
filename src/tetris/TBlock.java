@@ -10,6 +10,7 @@ public class TBlock extends Block {
 		stopPlace = 22;
 		checkRight = 9;
 		checkLeft = 1;
+		color = GamePanelTetris.BLACK;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -38,5 +39,8 @@ public class TBlock extends Block {
 		}
 	}
 
-
+	@Override
+	public void mapping() {
+		
+	}
 }
