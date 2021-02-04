@@ -38,6 +38,13 @@ public class BackwardsLWithTip extends Block {
 	}
 	
 	@Override
+	public void checkCollision() {
+		if (GamePanelTetris.map[row][column+1] != GamePanelTetris.BACKGROUND) {
+			stop();
+		}
+	}
+	
+	@Override
 	public void mapping() {
 		int xd = row;
 		int yd = column;

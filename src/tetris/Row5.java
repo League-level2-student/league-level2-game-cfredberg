@@ -31,7 +31,19 @@ public class Row5 extends Block {
 	}
 	
 	@Override
+	public void checkCollision() {
+		if (GamePanelTetris.map[row][column+1] != GamePanelTetris.BACKGROUND) {
+			stop();
+		}
+	}
+	
+	@Override
 	public void mapping() {
-		
+		int xd = row;
+		int yd = column;
+		for (int i = 0; i < 5; i++) {
+			GamePanelTetris.map[xd][yd] = color;
+			xd++;
+		}
 	}
 }

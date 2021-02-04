@@ -35,8 +35,23 @@ public class BackwardsL extends Block {
 	}
 	
 	@Override
-	public void mapping() {
-		
+	public void checkCollision() {
+		if (GamePanelTetris.map[row][column+1] != GamePanelTetris.BACKGROUND) {
+			stop();
+		}
 	}
 	
+	@Override
+	public void mapping() {
+		int xd = row;
+		int yd = column;
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				GamePanelTetris.map[xd][yd] = color;
+				yd++;
+			}else {
+				GamePanelTetris.map[xd-1][yd-1] = color;
+			}
+		}
+	}
 }

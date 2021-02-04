@@ -61,8 +61,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		frameDraw = new Timer(1000/3,this);
 	    frameDraw.start();
 	    
-	    //randomShape();
-	    block = new BackwardsLWithTip(4,0);
+	    randomShape();
 	    
 	    map = new int[10][25];
 	    
@@ -159,6 +158,27 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    	}
 	    }
 		
+		block.draw(g);
+		
+		for (int i = 0; i < oldBlocks.size(); i++) {
+			oldBlocks.get(i).draw(g);
+		}
+		
+		if (block.isMove == true) {
+			block.down();
+		}
+		
+		block.checkBottom();
+		if (block.isMove == true) {
+			block.checkCollision();
+		}
+		
+		if (block.isMove == false) {
+			//oldBlocks.add(block);
+			block.mapping();
+			randomShape();
+		}
+		
 		//Grid
 		
 		int x1 = x;
@@ -178,23 +198,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.setFont(instructions);
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
-		block.draw(g);
 		
-		for (int i = 0; i < oldBlocks.size(); i++) {
-			oldBlocks.get(i).draw(g);
-		}
-		
-		if (block.isMove == true) {
-			block.down();
-		}
-		
-		block.checkBottom();
-		
-		if (block.isMove == false) {
-			//oldBlocks.add(block);
-			block.mapping();
-			randomShape();
-		}
 	}
 	
 	public void drawEndState (Graphics g) {
