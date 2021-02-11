@@ -32,6 +32,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final static int PINK = 5;
 	final static int CYAN = 6;
 	final static int BACKGROUND = 7;
+	final static int MAP_END = 8;
 	
 	Timer frameDraw;
 	
@@ -53,22 +54,22 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	ArrayList<Block> oldBlocks = new ArrayList<Block>();
 	static int[][] map;
 	
-	//Row5 row5 = new Row5(0, 0);
-	
-	//ObjectManager objm = new ObjectManager(row5);
-	
 	public GamePanelTetris() {
 		frameDraw = new Timer(1000/3,this);
 	    frameDraw.start();
 	    
 	    randomShape();
 	    
-	    map = new int[10][25];
+	    map = new int[10][26];
 	    
 	    for (int i = 0; i < map.length; i++) {
 	    	for (int j = 0; j < map[0].length; j++) {
 	    		map[i][j] = BACKGROUND;
 	    	}
+	    }
+	    
+	    for (int i = 0; i < 10; i++) {
+	    	map[i][25] = MAP_END;
 	    }
 	}
 	
@@ -153,6 +154,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    		case CYAN:
 	    			g.setColor(Color.CYAN);
 	    			break;
+	    		case MAP_END:
+	    			g.setColor(new Color(0,52,179));
 	    		}
 	    		g.fillRect(calculator(i), calculator(j), 20, 20);
 	    	}
@@ -270,7 +273,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_SPACE) {
-				block.column = block.stopPlace-1;
+				//block.column = block.stopPlace-1;
+				spaceStop(block.row, block.column);
 			}
 		}
 	}
@@ -294,6 +298,21 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		return (RoC + 1) * 20 - 10;
 	}
 	
-	
+	public void spaceStop(int x, int y) {
+		boolean isBump = false;
+		int n = 1;
+		while (isBump == false) {
+			if (map[x][y+n] == BACKGROUND) {
+				n = n + 1;
+			}else if(map[x][y+n] == MAP_END){
+				block.column = block.stopPlace-1;
+				isBump = true;
+			}else {
+				n = n - 2;
+				block.column = block.column + n;
+				isBump = true;
+			}
+		}
+	}
 	
 }
