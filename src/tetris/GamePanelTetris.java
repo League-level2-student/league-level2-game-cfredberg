@@ -7,9 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -18,6 +23,10 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	Font header = new Font("Arial", Font.BOLD, 35);
 	Font instructions = new Font("Arial", Font.BOLD, 20);
 	Font smallInstructions = new Font("Arial", Font.BOLD, 15);
+	
+	public static BufferedImage image;
+	public static boolean needImage = true;
+	public static boolean gotImage = false;
 	
 	final int MENU = 0;
 	final int INST = 1;
@@ -70,6 +79,10 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    
 	    for (int i = 0; i < 10; i++) {
 	    	map[i][25] = MAP_END;
+	    }
+	    
+	    if (needImage) {
+	        loadImage ("LBlock.jpg");
 	    }
 	}
 	
@@ -202,6 +215,12 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.drawString("NEXT:", 220, 90);
 		g.drawRect(220, 100, 50, 50);
 		
+		if (gotImage) {
+			g.drawImage(image, 221, 118, 48, 14, null);
+		} else {
+			g.setColor(Color.BLUE);
+			g.fillRect(221, 101, 48, 20);
+		}
 	}
 	
 	public void drawEndState (Graphics g) {
@@ -315,4 +334,15 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}
 	}
 	
+	void loadImage(String imageFile) {
+	    if (needImage) {
+	        try {
+	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+		    gotImage = true;
+	        } catch (Exception e) {
+	            
+	        }
+	        needImage = false;
+	    }
+	}
 }
