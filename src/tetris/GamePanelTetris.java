@@ -58,6 +58,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	int x = 10;
 	int y = 10;
 	
+	String blockPicker;
+	
 	Block block;
 	
 	ArrayList<Block> oldBlocks = new ArrayList<Block>();
@@ -67,7 +69,9 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		frameDraw = new Timer(1000/3,this);
 	    frameDraw.start();
 	    
-	    randomShape();
+	    randomShapePicker();
+	    randomShapeDrawer();
+	    randomShapePicker();
 	    
 	    map = new int[10][26];
 	    
@@ -82,7 +86,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    }
 	    
 	    if (needImage) {
-	        loadImage ("LBlock.jpg");
+	        loadImage (blockPicker);
 	    }
 	}
 	
@@ -192,7 +196,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		if (block.isMove == false) {
 			//oldBlocks.add(block);
 			block.mapping();
-			randomShape();
+			randomShapeDrawer();
+			randomShapePicker();
+			needImage = true;
+			gotImage = false;
+			loadImage(blockPicker);
 		}
 		
 		//Grid
@@ -216,7 +224,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.drawRect(220, 100, 50, 50);
 		
 		if (gotImage) {
-			g.drawImage(image, 221, 118, 48, 14, null);
+			g.drawImage(image, 221, 102, 48, 48, null);
 		} else {
 			g.setColor(Color.BLUE);
 			g.fillRect(221, 101, 48, 20);
@@ -231,23 +239,42 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		//objm.update();
 	}
 	
-	public void randomShape() {
+	public void randomShapePicker() {
 		Random rnd = new Random();
 		int rndBlock = rnd.nextInt(7);
 		if (rndBlock == BL) {
-			block = new BackwardsL(4,0);
+			blockPicker = "BackwardsL.jpg";
 		}else if (rndBlock == BLWT) {
-			block = new BackwardsLWithTip(4,0);
+			blockPicker = "BackwardsLWithTip.jpg";
 		}else if (rndBlock == LB) {
-			block = new LBlock(4,0);
+			blockPicker = "LBlock.jpg";
 		}else if (rndBlock == LWT) {
-			block = new LWithTip(4,0);
+			blockPicker = "LWithTip.jpg";
 		}else if (rndBlock == R5) {
-			block = new Row5(4,0);
+			blockPicker = "row5.jpg";
 		}else if (rndBlock == TB) {
-			block = new TBlock(4,0);
+			blockPicker = "TBlock.jpg";
 		}else if (rndBlock == TBT) {
+			blockPicker = "TwoByTwo.jpg";
+		}
+	}
+	
+	public void randomShapeDrawer() {
+		if (blockPicker.equals("BackwardsL.jpg")) {
+			block = new BackwardsL(4,0);
+		}else if (blockPicker.equals("BackwardsLWithTip.jpg")) {
+			block = new BackwardsLWithTip(4,0);
+		}else if (blockPicker.equals("LBlock.jpg")) {
+			block = new LBlock(4,0);
+		}else if (blockPicker.equals("LWithTip.jpg")) {
+			block = new LWithTip(4,0);
+		}else if (blockPicker.equals("row5.jpg")) {
+			block = new Row5(4,0);
+		}else if (blockPicker.equals("TBlock.jpg")) {
+			block = new TBlock(4,0);
+		}else if (blockPicker.equals("TwoByTwo.jpg")) {
 			block = new TwoByTwo(4,0);
+			blockPicker = "TwoByTwo.jpg";
 		}
 	}
 	
