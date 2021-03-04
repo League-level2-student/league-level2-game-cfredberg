@@ -2,6 +2,7 @@ package tetris;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class Row5 extends Block {
 
@@ -11,6 +12,8 @@ public class Row5 extends Block {
 		checkLeft = 0;
 		checkRight = 5;
 		color = GamePanelTetris.BLUE;
+		checkSmash = new ArrayList<Location>();
+		//Continue working on "checkSmash"
 		// TODO Auto-generated constructor stub
 	}
 	

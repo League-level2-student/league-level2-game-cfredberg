@@ -2,6 +2,9 @@ package tetris;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+
+
 
 public class Block {
 	final int BLOCK_WIDTH = 20;
@@ -16,6 +19,8 @@ public class Block {
 	int checkLeft;
 	int checkRight;
 	int color;
+	
+	ArrayList<Location> checkSmash;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {

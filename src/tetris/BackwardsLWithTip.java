@@ -2,6 +2,7 @@ package tetris;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class BackwardsLWithTip extends Block {
 
@@ -11,6 +12,14 @@ public class BackwardsLWithTip extends Block {
 		checkRight = 9;
 		checkLeft = 1;
 		color = GamePanelTetris.MAGENTA;
+		checkSmash = new ArrayList<Location>();
+		checkSmash.add(new Location(1,0));
+		checkSmash.add(new Location(1,-1));
+		checkSmash.add(new Location(0,-2));
+		checkSmash.add(new Location(-1,-3));
+		checkSmash.add(new Location(-2,-2));
+		checkSmash.add(new Location(-2,-1));
+		checkSmash.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub
 	}
 	
