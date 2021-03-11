@@ -229,6 +229,17 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			g.setColor(Color.BLUE);
 			g.fillRect(221, 101, 48, 20);
 		}
+		
+		colTest();
+	}
+	
+	public void colTest() {
+		for (int i = 0; i<block.checkSmash.size(); i++) {
+			if (map[block.row+block.checkSmash.get(i).x][block.column+block.checkSmash.get(i).y] != BACKGROUND) {
+				System.out.println(i);
+				block.stop();
+			}
+		}
 	}
 	
 	public void drawEndState (Graphics g) {
