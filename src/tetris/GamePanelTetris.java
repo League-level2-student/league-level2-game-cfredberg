@@ -196,7 +196,9 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		if (block.isMove == false) {
 			//oldBlocks.add(block);
 			block.mapping();
+			System.out.println("new block");
 			randomShapeDrawer();
+			System.out.println("drew block");
 			randomShapePicker();
 			needImage = true;
 			gotImage = false;
@@ -235,8 +237,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	public void colTest() {
 		for (int i = 0; i<block.checkSmash.size(); i++) {
+			System.out.println(block.getClass().getName() + ", " + block.column + ", " + block.checkSmash.get(i).y);
 			if (map[block.row+block.checkSmash.get(i).x][block.column+block.checkSmash.get(i).y] != BACKGROUND) {
-				System.out.println(i);
 				block.stop();
 			}
 		}

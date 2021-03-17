@@ -14,12 +14,12 @@ public class LBlock extends Block {
 		color = GamePanelTetris.YELLOW;
 		checkSmash = new ArrayList<Location>();
 		checkSmash.add(new Location(1,0));
-		checkSmash.add(new Location(1,-1));
-		checkSmash.add(new Location(2,-2));
-		checkSmash.add(new Location(1,-3));
-		checkSmash.add(new Location(0,-3));
-		checkSmash.add(new Location(-1,-2));
-		checkSmash.add(new Location(-1,-1));
+		checkSmash.add(new Location(1,1));
+		checkSmash.add(new Location(2,2));
+		checkSmash.add(new Location(1,3));
+		checkSmash.add(new Location(0,3));
+		checkSmash.add(new Location(-1,2));
+		checkSmash.add(new Location(-1,1));
 		checkSmash.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub
 	}
