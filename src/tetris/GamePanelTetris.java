@@ -188,10 +188,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			block.down();
 		}
 		
-		block.checkBottom();
+		/*block.checkBottom();
 		if (block.isMove == true) {
 			block.checkCollision();
 		}
+		*/
 		
 		if (block.isMove == false) {
 			//oldBlocks.add(block);
@@ -232,12 +233,13 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			g.fillRect(221, 101, 48, 20);
 		}
 		
-		colTest();
+		collisions();
 	}
 	
-	public void colTest() {
+	public void collisions() {
 		for (int i = 0; i<block.checkSmash.size(); i++) {
 			System.out.println(block.getClass().getName() + ", " + block.column + ", " + block.checkSmash.get(i).y);
+			
 			if (map[block.row+block.checkSmash.get(i).x][block.column+block.checkSmash.get(i).y] != BACKGROUND) {
 				block.stop();
 			}
