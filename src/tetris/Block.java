@@ -20,7 +20,9 @@ public class Block {
 	int checkRight;
 	int color;
 	
-	ArrayList<Location> checkSmash;
+	ArrayList<Location> checkLefts;
+	ArrayList<Location> checkRights;
+	ArrayList<Location> checkBottoms;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {

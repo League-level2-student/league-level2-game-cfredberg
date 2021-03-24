@@ -237,10 +237,20 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void collisions() {
-		for (int i = 0; i<block.checkSmash.size(); i++) {
-			System.out.println(block.getClass().getName() + ", " + block.column + ", " + block.checkSmash.get(i).y);
-			
-			if (map[block.row+block.checkSmash.get(i).x][block.column+block.checkSmash.get(i).y] != BACKGROUND) {
+		for (int i = 0; i<block.checkLefts.size(); i++) {
+			if (map[block.row+block.checkLefts.get(i).x][block.column+block.checkLefts.get(i).y] != BACKGROUND) {
+				block.stop();
+			}
+		}
+		
+		for (int i = 0; i<block.checkRights.size(); i++) {
+			if (map[block.row+block.checkRights.get(i).x][block.column+block.checkRights.get(i).y] != BACKGROUND) {
+				block.stop();
+			}
+		}
+		
+		for (int i = 0; i<block.checkBottoms.size(); i++) {
+			if (map[block.row+block.checkBottoms.get(i).x][block.column+block.checkBottoms.get(i).y] != BACKGROUND) {
 				block.stop();
 			}
 		}

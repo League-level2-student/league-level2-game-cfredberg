@@ -12,15 +12,17 @@ public class BackwardsL extends Block {
 		checkRight = 9;
 		checkLeft = 1;
 		color = GamePanelTetris.CYAN;
-		checkSmash = new ArrayList<Location>();
-		checkSmash.add(new Location(1,0));
-		checkSmash.add(new Location(1,1));
-		checkSmash.add(new Location(1,2));
-		checkSmash.add(new Location(0,3));
-		checkSmash.add(new Location(-1,3));
-		checkSmash.add(new Location(-2,2));
-		checkSmash.add(new Location(-1,1));
-		checkSmash.add(new Location(-1,0));
+		checkLefts = new ArrayList<Location>();
+		checkRights = new ArrayList<Location>();
+		checkBottoms = new ArrayList<Location>();
+		checkRights.add(new Location(1,0));
+		checkRights.add(new Location(1,1));
+		checkRights.add(new Location(1,2));
+		checkBottoms.add(new Location(0,3));
+		checkBottoms.add(new Location(-1,3));
+		checkLefts.add(new Location(-2,2));
+		checkLefts.add(new Location(-1,1));
+		checkLefts.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block

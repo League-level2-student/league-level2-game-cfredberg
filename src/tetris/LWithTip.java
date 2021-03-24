@@ -12,14 +12,16 @@ public class LWithTip extends Block {
 		checkRight = 8;
 		checkLeft = 0;
 		color = GamePanelTetris.GREEN;
-		checkSmash = new ArrayList<Location>();
-		checkSmash.add(new Location(1,0));
-		checkSmash.add(new Location(2,1));
-		checkSmash.add(new Location(2,2));
-		checkSmash.add(new Location(1,3));
-		checkSmash.add(new Location(0,2));
-		checkSmash.add(new Location(-1,1));
-		checkSmash.add(new Location(-1,0));
+		checkLefts = new ArrayList<Location>();
+		checkRights = new ArrayList<Location>();
+		checkBottoms = new ArrayList<Location>();
+		checkRights.add(new Location(1,0));
+		checkRights.add(new Location(2,1));
+		checkRights.add(new Location(2,2));
+		checkBottoms.add(new Location(1,3));
+		checkLefts.add(new Location(0,2));
+		checkLefts.add(new Location(-1,1));
+		checkLefts.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub
 	}
 	

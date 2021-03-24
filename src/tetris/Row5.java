@@ -12,14 +12,16 @@ public class Row5 extends Block {
 		checkLeft = 0;
 		checkRight = 5;
 		color = GamePanelTetris.BLUE;
-		checkSmash = new ArrayList<Location>();
-		checkSmash.add(new Location(5,0));
-		checkSmash.add(new Location(4,1));
-		checkSmash.add(new Location(3,1));
-		checkSmash.add(new Location(2,1));
-		checkSmash.add(new Location(1,1));
-		checkSmash.add(new Location(0,1));
-		checkSmash.add(new Location(-1,0));
+		checkLefts = new ArrayList<Location>();
+		checkRights = new ArrayList<Location>();
+		checkBottoms = new ArrayList<Location>();
+		checkRights.add(new Location(5,0));
+		checkBottoms.add(new Location(4,1));
+		checkBottoms.add(new Location(3,1));
+		checkBottoms.add(new Location(2,1));
+		checkBottoms.add(new Location(1,1));
+		checkBottoms.add(new Location(0,1));
+		checkLefts.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub
 	}
 	
