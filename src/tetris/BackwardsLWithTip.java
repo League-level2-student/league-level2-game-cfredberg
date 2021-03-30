@@ -17,7 +17,7 @@ public class BackwardsLWithTip extends Block {
 		checkBottoms = new ArrayList<Location>();
 		checkRights.add(new Location(1,0));
 		checkRights.add(new Location(1,1));
-		checkRights.add(new Location(0,2));
+		checkBottoms.add(new Location(0,2));
 		checkBottoms.add(new Location(-1,3));
 		checkLefts.add(new Location(-2,2));
 		checkLefts.add(new Location(-2,1));

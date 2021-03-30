@@ -19,7 +19,7 @@ public class LWithTip extends Block {
 		checkRights.add(new Location(2,1));
 		checkRights.add(new Location(2,2));
 		checkBottoms.add(new Location(1,3));
-		checkLefts.add(new Location(0,2));
+		checkBottoms.add(new Location(0,2));
 		checkLefts.add(new Location(-1,1));
 		checkLefts.add(new Location(-1,0));
 		// TODO Auto-generated constructor stub

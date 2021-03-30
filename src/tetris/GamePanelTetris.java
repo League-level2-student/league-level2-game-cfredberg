@@ -233,27 +233,37 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			g.fillRect(221, 101, 48, 20);
 		}
 		
-		collisions();
+		bottomCollisions();
 	}
 	
-	public void collisions() {
-		for (int i = 0; i<block.checkLefts.size(); i++) {
-			if (map[block.row+block.checkLefts.get(i).x][block.column+block.checkLefts.get(i).y] != BACKGROUND) {
-				block.stop();
-			}
-		}
-		
-		for (int i = 0; i<block.checkRights.size(); i++) {
-			if (map[block.row+block.checkRights.get(i).x][block.column+block.checkRights.get(i).y] != BACKGROUND) {
-				block.stop();
-			}
-		}
-		
+	public void bottomCollisions() {
 		for (int i = 0; i<block.checkBottoms.size(); i++) {
 			if (map[block.row+block.checkBottoms.get(i).x][block.column+block.checkBottoms.get(i).y] != BACKGROUND) {
 				block.stop();
 			}
 		}
+	}
+	
+	public boolean rightCollisions() {
+		boolean rightCollisionBool = false;
+		if (block.row != block.checkRight) {
+			for (int i = 0; i<block.checkRights.size(); i++) {
+				if (map[block.row+block.checkRights.get(i).x][block.column+block.checkRights.get(i).y] != BACKGROUND) {
+					rightCollisionBool = true;
+				}
+			}
+		}
+		return rightCollisionBool;
+	}
+	
+	public boolean leftCollisions() {
+		boolean leftCollisionBool = false;
+		for (int i = 0; i<block.checkLefts.size(); i++) {
+			if (map[block.row+block.checkLefts.get(i).x][block.column+block.checkLefts.get(i).y] != BACKGROUND) {
+				leftCollisionBool = true;
+			}
+		}
+		return leftCollisionBool;
 	}
 	
 	public void drawEndState (Graphics g) {
@@ -323,13 +333,17 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		if (currentState == GAME) {
 			if (e.getKeyCode()==KeyEvent.VK_LEFT) {
 				if (block.row > block.checkLeft) {
-					block.left();
+					if (leftCollisions() == false) {
+						block.left();
+					}
 				}
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
 				if (block.row < block.checkRight) {
-					block.right();
+					if (rightCollisions() == false) {
+						block.right();
+					}
 				}
 			}
 			
