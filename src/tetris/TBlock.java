@@ -49,13 +49,6 @@ public class TBlock extends Block {
 			stop();
 		}
 	}
-	
-	@Override
-	public void checkCollision() {
-		if (GamePanelTetris.map[row][column+1] != GamePanelTetris.BACKGROUND) {
-			stop();
-		}
-	}
 
 	@Override
 	public void mapping() {

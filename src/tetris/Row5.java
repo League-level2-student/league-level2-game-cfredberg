@@ -35,20 +35,6 @@ public class Row5 extends Block {
 	}
 	
 	@Override
-	public void checkBottom() {
-		if (column == stopPlace) {
-			stop();
-		}
-	}
-	
-	@Override
-	public void checkCollision() {
-		if (GamePanelTetris.map[row][column+1] != GamePanelTetris.BACKGROUND) {
-			stop();
-		}
-	}
-	
-	@Override
 	public void mapping() {
 		int xd = row;
 		int yd = column;
@@ -57,4 +43,5 @@ public class Row5 extends Block {
 			xd++;
 		}
 	}
+	
 }

@@ -19,6 +19,7 @@ public class Block {
 	int checkLeft;
 	int checkRight;
 	int color;
+	int jumpD;
 	
 	ArrayList<Location> checkLefts;
 	ArrayList<Location> checkRights;
@@ -73,6 +74,22 @@ public class Block {
 	}
 	
 	public void mapping() {
+		
+	}
+	
+	public int spaceBar() {
+		jumpD = 0;
+		while(true) {
+			for (int i = 0; i<checkBottoms.size(); i++) {
+				if (GamePanelTetris.map[row+checkBottoms.get(i).x][column+checkBottoms.get(i).y+jumpD] != GamePanelTetris.BACKGROUND) {
+					return jumpD;
+				}
+			}
+			jumpD++;
+		}
+	}
+	
+	public void downArrow() {
 		
 	}
 }
