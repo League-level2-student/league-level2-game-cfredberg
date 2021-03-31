@@ -180,6 +180,12 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	    	}
 	    }
 		
+		if (block == null) {
+			randomShapePicker();
+			randomShapeDrawer();
+			randomShapePicker();
+		}
+		
 		block.draw(g);
 		
 		for (int i = 0; i < oldBlocks.size(); i++) {
@@ -233,7 +239,9 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		for (int i = 0; i<block.checkBottoms.size(); i++) {
 			if (map[block.row+block.checkBottoms.get(i).x][block.column+block.checkBottoms.get(i).y] != BACKGROUND) {
 				if (block.column == 0) {
+					block = null;
 					currentState = END;
+					return;
 				}
 				block.stop();
 			}
@@ -262,18 +270,19 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		return leftCollisionBool;
 	}
 	
-	public boolean downCollisions() {
-		boolean collide = false;
-		for (int i = 0; i<block.checkBottoms.size(); i++) {
-			if (map[block.row+block.checkBottoms.get(i).x][block.column+block.checkBottoms.get(i).y] != BACKGROUND) {
-				collide = true;
-			}
-		}
-		
-		return collide;
-	}
-	
 	public void drawEndState (Graphics g) {
+		map = new int[10][26];
+		
+		for (int i = 0; i < map.length; i++) {
+	    	for (int j = 0; j < map[0].length; j++) {
+	    		map[i][j] = BACKGROUND;
+	    	}
+	    }
+	    
+	    for (int i = 0; i < 10; i++) {
+	    	map[i][25] = MAP_END;
+	    }
+		
 		g.setColor(new Color(0, 52, 179));
 		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
 	}
@@ -354,7 +363,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-				
+				bottomCollisions();
 				block.down();
 			}
 			
