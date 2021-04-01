@@ -88,8 +88,4 @@ public class Block {
 			jumpD++;
 		}
 	}
-	
-	public void downArrow() {
-		
-	}
 }

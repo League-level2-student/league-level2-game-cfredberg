@@ -44,6 +44,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	final static int MAP_END = 8;
 	
 	Timer frameDraw;
+	Timer colisionTimer;
 	
 	int currentState = MENU;
 	
@@ -236,16 +237,25 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void bottomCollisions() {
-		for (int i = 0; i<block.checkBottoms.size(); i++) {
-			if (map[block.row+block.checkBottoms.get(i).x][block.column+block.checkBottoms.get(i).y] != BACKGROUND) {
-				if (block.column == 0) {
-					block = null;
-					currentState = END;
-					return;
-				}
+		for (int i = 0; block != null && i < block.checkBottoms.size(); i++) {
+			int xIndex = block.row + block.checkBottoms.get(i).x;
+			int yIndex = block.column + block.checkBottoms.get(i).y;
+			if (yIndex > block.stopPlace) {
+				yIndex = block.stopPlace;
+				block.column = block.stopPlace;
 				block.stop();
+			} else {
+				if (map[xIndex][yIndex] != BACKGROUND) {
+					if (block.column == 0) {
+						block = null;
+						currentState = END;
+						return;
+					}
+					block.stop();
+				}
 			}
 		}
+
 	}
 	
 	public boolean rightCollisions() {
@@ -363,8 +373,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-				bottomCollisions();
-				block.down();
+				frameDraw.setDelay(10);
 			}
 			
 			if (e.getKeyCode()==KeyEvent.VK_UP) {
@@ -382,12 +391,15 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+			frameDraw.setDelay(1000/3);
+		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		bottomCollisions();
 		repaint();
 	}
 	
