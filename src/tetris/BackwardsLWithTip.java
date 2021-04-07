@@ -41,6 +41,22 @@ public class BackwardsLWithTip extends Block {
 		}
 	}
 	
+	public void draw1(Graphics g) {
+		int xd = 0;
+		int yd = 0;
+		g.setColor(Color.MAGENTA);
+		for (int i = 0; i < 4; i++) {
+			g.fillRect(xd*BLOCK_WIDTH+x, yd*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			if (i == 0) {
+				xd++;
+			}else if (i == 1) {
+				yd--;
+			}else if (i == 2) {
+				xd++;
+			}
+		}
+	}
+	
 	@Override
 	public void checkBottom() {
 		if (column == stopPlace) {

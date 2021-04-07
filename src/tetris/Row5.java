@@ -34,6 +34,15 @@ public class Row5 extends Block {
 		}
 	}
 	
+	public void draw1(Graphics g) {
+		int d = 0;
+		g.setColor(Color.BLUE);
+		for (int i = 0; i < 5; i++) {
+			g.fillRect(x, d*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			d++;
+		}
+	}
+	
 	@Override
 	public void mapping() {
 		int xd = row;

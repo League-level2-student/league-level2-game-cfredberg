@@ -39,6 +39,45 @@ public class LBlock extends Block {
 		}
 	}
 	
+	public void draw1(Graphics g) {
+		int d = 0;
+		g.setColor(Color.YELLOW);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(d*BLOCK_WIDTH+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d++;
+			}else {
+				g.fillRect((d-1)*BLOCK_WIDTH+x, (-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
+	public void draw2(Graphics g) {
+		int d = 0;
+		g.setColor(Color.YELLOW);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(x, d*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d--;
+			}else {
+				g.fillRect(x-BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
+	public void draw3(Graphics g) {
+		int d = 0;
+		g.setColor(Color.YELLOW);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(d*BLOCK_WIDTH+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d--;
+			}else {
+				g.fillRect((d-1)*BLOCK_WIDTH+x, BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
 	@Override
 	public void checkBottom() {
 		if (column == stopPlace) {
