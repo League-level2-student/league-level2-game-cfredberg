@@ -29,7 +29,6 @@ public class TBlock extends Block {
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);
-		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 		for (int i = 0; i < 4; i++) {
 			g.fillRect(xd*BLOCK_WIDTH+x, yd*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			if (i == 0) {
@@ -47,7 +46,6 @@ public class TBlock extends Block {
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);
-		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 		for (int i = 0; i < 4; i++) {
 			g.fillRect(xd*BLOCK_WIDTH+x, yd*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			if (i == 0) {
@@ -57,6 +55,40 @@ public class TBlock extends Block {
 			}else if (i == 2) {
 				yd--;
 				xd++;
+			}
+		}
+	}
+	
+	public void draw2(Graphics g) {
+		int xd = 0;
+		int yd = 0;
+		g.setColor(Color.BLACK);
+		for (int i = 0; i < 4; i++) {
+			g.fillRect(xd*BLOCK_WIDTH+x, yd*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			if (i == 0) {
+				yd--;
+			}else if (i == 1) {
+				xd++;
+			}else if (i == 2) {
+				xd--;
+				yd++;
+			}
+		}
+	}
+	
+	public void draw3(Graphics g) {
+		int xd = 0;
+		int yd = 0;
+		g.setColor(Color.BLACK);
+		for (int i = 0; i < 4; i++) {
+			g.fillRect(xd*BLOCK_WIDTH+x, yd*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			if (i == 0) {
+				xd--;
+			}else if (i == 1) {
+				yd++;
+			}else if (i == 2) {
+				yd--;
+				xd--;
 			}
 		}
 	}

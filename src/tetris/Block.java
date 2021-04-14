@@ -24,6 +24,15 @@ public class Block {
 	ArrayList<Location> checkLefts;
 	ArrayList<Location> checkRights;
 	ArrayList<Location> checkBottoms;
+	ArrayList<Location> checkLefts1;
+	ArrayList<Location> checkRights1;
+	ArrayList<Location> checkBottoms1;
+	ArrayList<Location> checkLefts2;
+	ArrayList<Location> checkRights2;
+	ArrayList<Location> checkBottoms2;
+	ArrayList<Location> checkLefts3;
+	ArrayList<Location> checkRights3;
+	ArrayList<Location> checkBottoms3;
 	
 	boolean isMove = true;
 	public Block(int row, int column) {

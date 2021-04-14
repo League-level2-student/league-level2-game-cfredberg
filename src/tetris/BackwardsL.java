@@ -15,6 +15,15 @@ public class BackwardsL extends Block {
 		checkLefts = new ArrayList<Location>();
 		checkRights = new ArrayList<Location>();
 		checkBottoms = new ArrayList<Location>();
+		checkLefts1 = new ArrayList<Location>();
+		checkRights1 = new ArrayList<Location>();
+		checkBottoms1 = new ArrayList<Location>();
+		checkLefts2 = new ArrayList<Location>();
+		checkRights2 = new ArrayList<Location>();
+		checkBottoms2 = new ArrayList<Location>();
+		checkLefts3 = new ArrayList<Location>();
+		checkRights3 = new ArrayList<Location>();
+		checkBottoms3 = new ArrayList<Location>();
 		checkRights.add(new Location(1,0));
 		checkRights.add(new Location(1,1));
 		checkRights.add(new Location(1,2));
@@ -23,6 +32,19 @@ public class BackwardsL extends Block {
 		checkLefts.add(new Location(-2,2));
 		checkLefts.add(new Location(-1,1));
 		checkLefts.add(new Location(-1,0));
+		checkLefts1.add(new Location(-1,0));
+		checkLefts1.add(new Location(1,1));
+		checkRights1.add(new Location(3,0));
+		checkRights1.add(new Location(3,1));
+		checkBottoms1.add(new Location(0,1));
+		checkBottoms1.add(new Location(1,1));
+		checkBottoms1.add(new Location(2,2));
+		checkLefts2.add(new Location(-1,-2));
+		checkLefts2.add(new Location(-1,-1));
+		checkLefts2.add(new Location(-1,0));
+		checkBottoms2.add(new Location(0,1));
+		checkBottoms2.add(new Location(1,1));
+		
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block
@@ -35,6 +57,45 @@ public class BackwardsL extends Block {
 				d++;
 			}else {
 				g.fillRect(x-BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
+	public void draw1(Graphics g) {
+		int d = 0;
+		g.setColor(Color.CYAN);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(d*BLOCK_HEIGHT+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d++;
+			}else {
+				g.fillRect((d-1)*BLOCK_WIDTH, y-BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
+	public void draw2(Graphics g) {
+		int d = 0;
+		g.setColor(Color.CYAN);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(x, d*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d--;
+			}else {
+				g.fillRect(x+BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+			}
+		}
+	}
+	
+	public void draw3(Graphics g) {
+		int d = 0;
+		g.setColor(Color.CYAN);
+		for (int i = 0; i < 4; i++) {
+			if (i < 3) {
+				g.fillRect(d*BLOCK_HEIGHT+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				d--;
+			}else {
+				g.fillRect((d-1)*BLOCK_WIDTH, y-BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}
