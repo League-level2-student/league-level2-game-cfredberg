@@ -43,8 +43,17 @@ public class BackwardsL extends Block {
 		checkLefts2.add(new Location(-1,-1));
 		checkLefts2.add(new Location(-1,0));
 		checkBottoms2.add(new Location(0,1));
-		checkBottoms2.add(new Location(1,1));
-		
+		checkBottoms2.add(new Location(1,-1));
+		checkRights2.add(new Location(2,-2));
+		checkRights2.add(new Location(1,-1));
+		checkRights2.add(new Location(1,0));
+		checkRights3.add(new Location(-1,-1));
+		checkRights3.add(new Location(1,0));
+		checkBottoms3.add(new Location(-2,1));
+		checkBottoms3.add(new Location(-1,1));
+		checkBottoms3.add(new Location(0,1));
+		checkLefts3.add(new Location(-3,-1));
+		checkLefts3.add(new Location(-3,0));
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block

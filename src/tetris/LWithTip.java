@@ -15,6 +15,9 @@ public class LWithTip extends Block {
 		checkLefts = new ArrayList<Location>();
 		checkRights = new ArrayList<Location>();
 		checkBottoms = new ArrayList<Location>();
+		checkLefts1 = new ArrayList<Location>();
+		checkRights1 = new ArrayList<Location>();
+		checkBottoms1 = new ArrayList<Location>();
 		checkRights.add(new Location(1,0));
 		checkRights.add(new Location(2,1));
 		checkRights.add(new Location(2,2));
@@ -22,6 +25,13 @@ public class LWithTip extends Block {
 		checkBottoms.add(new Location(0,2));
 		checkLefts.add(new Location(-1,1));
 		checkLefts.add(new Location(-1,0));
+		checkLefts1.add(new Location(-2,0));
+		checkLefts1.add(new Location(-3,1));
+		checkBottoms1.add(new Location(-2,2));
+		checkBottoms1.add(new Location(-1,2));
+		checkBottoms1.add(new Location(0,1));
+		checkRights1.add(new Location(1,0));
+		checkRights1.add(new Location(0,1));
 		// TODO Auto-generated constructor stub
 	}
 	
