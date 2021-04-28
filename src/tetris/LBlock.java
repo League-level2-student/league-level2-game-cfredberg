@@ -57,6 +57,7 @@ public class LBlock extends Block {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public void draw(Graphics g) {
 		int d = 0;
 		g.setColor(Color.YELLOW);
@@ -70,6 +71,7 @@ public class LBlock extends Block {
 		}
 	}
 	
+	@Override
 	public void draw1(Graphics g) {
 		int d = 0;
 		g.setColor(Color.YELLOW);
@@ -83,6 +85,7 @@ public class LBlock extends Block {
 		}
 	}
 	
+	@Override
 	public void draw2(Graphics g) {
 		int d = 0;
 		g.setColor(Color.YELLOW);
@@ -91,11 +94,12 @@ public class LBlock extends Block {
 				g.fillRect(x, d*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 				d--;
 			}else {
-				g.fillRect(x-BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect(x-BLOCK_WIDTH, (d+1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}
 	
+	@Override
 	public void draw3(Graphics g) {
 		int d = 0;
 		g.setColor(Color.YELLOW);
@@ -104,7 +108,7 @@ public class LBlock extends Block {
 				g.fillRect(d*BLOCK_WIDTH+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 				d--;
 			}else {
-				g.fillRect((d-1)*BLOCK_WIDTH+x, BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect((d+1)*BLOCK_WIDTH+x, BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}

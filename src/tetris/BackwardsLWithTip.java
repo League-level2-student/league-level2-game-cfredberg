@@ -25,6 +25,7 @@ public class BackwardsLWithTip extends Block {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public void draw(Graphics g) {
 		int xd = 0;
 		int yd = 0;
@@ -41,6 +42,7 @@ public class BackwardsLWithTip extends Block {
 		}
 	}
 	
+	@Override
 	public void draw1(Graphics g) {
 		int xd = 0;
 		int yd = 0;
@@ -55,6 +57,16 @@ public class BackwardsLWithTip extends Block {
 				xd++;
 			}
 		}
+	}
+	
+	@Override
+	public void draw2(Graphics g) {
+		draw(g);
+	}
+	
+	@Override
+	public void draw3(Graphics g) {
+		draw1(g);
 	}
 	
 	@Override

@@ -43,8 +43,19 @@ public class Block {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+		
+	}
+	
+	public void draw1(Graphics g) {
+		
+	}
+	
+	public void draw2(Graphics g) {
+		
+	}
+	
+	public void draw3(Graphics g) {
+		
 	}
 	
 	public void update() {

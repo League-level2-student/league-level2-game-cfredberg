@@ -24,6 +24,7 @@ public class TwoByTwo extends Block {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
 	public void draw(Graphics g) {
 		int xd = 0;
 		int yd = 0;
@@ -39,6 +40,21 @@ public class TwoByTwo extends Block {
 				yd--;
 			}
 		}
+	}
+	
+	@Override
+	public void draw1(Graphics g) {
+		draw(g);
+	}
+	
+	@Override
+	public void draw2(Graphics g) {
+		draw(g);
+	}
+	
+	@Override
+	public void draw3(Graphics g) {
+		draw(g);
 	}
 	
 	@Override

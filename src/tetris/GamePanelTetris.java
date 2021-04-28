@@ -187,7 +187,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			randomShapePicker();
 		}
 		
-		block.draw(g);
+		block.draw3(g);
 		
 		for (int i = 0; i < oldBlocks.size(); i++) {
 			oldBlocks.get(i).draw(g);

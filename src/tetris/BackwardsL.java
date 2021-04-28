@@ -57,6 +57,7 @@ public class BackwardsL extends Block {
 		// TODO Auto-generated constructor stub
 	}
 	//Main block is top block
+	@Override
 	public void draw(Graphics g) {
 		int d = 0;
 		g.setColor(Color.CYAN);
@@ -70,19 +71,21 @@ public class BackwardsL extends Block {
 		}
 	}
 	
+	@Override
 	public void draw1(Graphics g) {
 		int d = 0;
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 4; i++) {
 			if (i < 3) {
-				g.fillRect(d*BLOCK_HEIGHT+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect(d*BLOCK_WIDTH+x, y, BLOCK_HEIGHT, BLOCK_HEIGHT);
 				d++;
 			}else {
-				g.fillRect((d-1)*BLOCK_WIDTH, y-BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect((d-1)*BLOCK_WIDTH+x, y+BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}
 	
+	@Override
 	public void draw2(Graphics g) {
 		int d = 0;
 		g.setColor(Color.CYAN);
@@ -91,11 +94,12 @@ public class BackwardsL extends Block {
 				g.fillRect(x, d*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 				d--;
 			}else {
-				g.fillRect(x+BLOCK_WIDTH, (d-1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect(x+BLOCK_WIDTH, (d+1)*BLOCK_HEIGHT+y, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}
 	
+	@Override
 	public void draw3(Graphics g) {
 		int d = 0;
 		g.setColor(Color.CYAN);
@@ -104,7 +108,7 @@ public class BackwardsL extends Block {
 				g.fillRect(d*BLOCK_HEIGHT+x, y, BLOCK_WIDTH, BLOCK_HEIGHT);
 				d--;
 			}else {
-				g.fillRect((d-1)*BLOCK_WIDTH, y-BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+				g.fillRect((d+1)*BLOCK_WIDTH+x, y-BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 			}
 		}
 	}
