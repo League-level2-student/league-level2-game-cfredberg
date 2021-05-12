@@ -253,83 +253,86 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void bottomCollisions() {
-		if (blockState == STATE_1) {
-			for (int i = 0; block != null && i < block.checkBottoms.size(); i++) {
-				int xIndex = block.row + block.checkBottoms.get(i).x;
-				int yIndex = block.column + block.checkBottoms.get(i).y;
-				if (yIndex > block.stopPlace) {
-					yIndex = block.stopPlace;
-					block.column = block.stopPlace;
-					block.stop();
-				} else {
-					if (map[xIndex][yIndex] != BACKGROUND) {
-						if (block.column == 0) {
-							block = null;
-							currentState = END;
-							return;
-						}
+		if (block != null) {
+			if (blockState == STATE_1) {
+				for (int i = 0; i < block.checkBottoms.size() && block.checkBottoms != null; i++) {
+					int xIndex = block.row + block.checkBottoms.get(i).x;
+					int yIndex = block.column + block.checkBottoms.get(i).y;
+					if (yIndex > block.stopPlace) {
+						yIndex = block.stopPlace;
+						block.column = block.stopPlace;
 						block.stop();
+					} else {
+						if (map[xIndex][yIndex] != BACKGROUND) {
+							if (block.column == 0) {
+								block = null;
+								currentState = END;
+								return;
+							}
+							block.stop();
+						}
 					}
 				}
-			}
-		} else if (blockState == STATE_2) {
-			for (int i = 0; block != null && i < block.checkBottoms1.size(); i++) {
-				int xIndex = block.row + block.checkBottoms1.get(i).x;
-				int yIndex = block.column + block.checkBottoms1.get(i).y;
-				if (yIndex > block.stopPlace) {
-					yIndex = block.stopPlace;
-					block.column = block.stopPlace;
-					block.stop();
-				} else {
-					if (map[xIndex][yIndex] != BACKGROUND) {
-						if (block.column == 0) {
-							block = null;
-							currentState = END;
-							return;
-						}
+			} else if (blockState == STATE_2) {
+				for (int i = 0; i < block.checkBottoms1.size() && block.checkBottoms1 != null; i++) {
+					int xIndex = block.row + block.checkBottoms1.get(i).x;
+					int yIndex = block.column + block.checkBottoms1.get(i).y;
+					if (yIndex > block.stopPlace) {
+						yIndex = block.stopPlace;
+						block.column = block.stopPlace;
 						block.stop();
+					} else {
+						if (map[xIndex][yIndex] != BACKGROUND) {
+							if (block.column == 0) {
+								block = null;
+								currentState = END;
+								return;
+							}
+							block.stop();
+						}
 					}
 				}
-			}
-		} else if (blockState == STATE_3) {
-			for (int i = 0; block != null && i < block.checkBottoms2.size(); i++) {
-				int xIndex = block.row + block.checkBottoms2.get(i).x;
-				int yIndex = block.column + block.checkBottoms2.get(i).y;
-				if (yIndex > block.stopPlace) {
-					yIndex = block.stopPlace;
-					block.column = block.stopPlace;
-					block.stop();
-				} else {
-					if (map[xIndex][yIndex] != BACKGROUND) {
-						if (block.column == 0) {
-							block = null;
-							currentState = END;
-							return;
-						}
+			} else if (blockState == STATE_3) {
+				for (int i = 0; i < block.checkBottoms2.size() && block.checkBottoms2 != null; i++) {
+					int xIndex = block.row + block.checkBottoms2.get(i).x;
+					int yIndex = block.column + block.checkBottoms2.get(i).y;
+					if (yIndex > block.stopPlace) {
+						yIndex = block.stopPlace;
+						block.column = block.stopPlace;
 						block.stop();
+					} else {
+						if (map[xIndex][yIndex] != BACKGROUND) {
+							if (block.column == 0) {
+								block = null;
+								currentState = END;
+								return;
+							}
+							block.stop();
+						}
 					}
 				}
-			}
-		}else {
-			for (int i = 0; block != null && i < block.checkBottoms3.size(); i++) {
-				int xIndex = block.row + block.checkBottoms3.get(i).x;
-				int yIndex = block.column + block.checkBottoms3.get(i).y;
-				if (yIndex > block.stopPlace) {
-					yIndex = block.stopPlace;
-					block.column = block.stopPlace;
-					block.stop();
-				} else {
-					if (map[xIndex][yIndex] != BACKGROUND) {
-						if (block.column == 0) {
-							block = null;
-							currentState = END;
-							return;
-						}
+			}else {
+				for (int i = 0; i < block.checkBottoms3.size() && block.checkBottoms3 != null; i++) {
+					int xIndex = block.row + block.checkBottoms3.get(i).x;
+					int yIndex = block.column + block.checkBottoms3.get(i).y;
+					if (yIndex > block.stopPlace) {
+						yIndex = block.stopPlace;
+						block.column = block.stopPlace;
 						block.stop();
+					} else {
+						if (map[xIndex][yIndex] != BACKGROUND) {
+							if (block.column == 0) {
+								block = null;
+								currentState = END;
+								return;
+							}
+							block.stop();
+						}
 					}
 				}
 			}
 		}
+		
 	}
 	
 	public boolean rightCollisions() {
@@ -438,6 +441,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	}
 	
 	public void randomShapeDrawer() {
+		blockState = STATE_1;
 		if (blockPicker.equals("BackwardsL.jpg")) {
 			block = new BackwardsL(4,0);
 		}else if (blockPicker.equals("BackwardsLWithTip.jpg")) {

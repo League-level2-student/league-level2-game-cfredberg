@@ -120,9 +120,9 @@ public class TBlock extends Block {
 			if (i == 0) {
 				xd--;
 			}else if (i == 1) {
-				yd++;
-			}else if (i == 2) {
 				yd--;
+			}else if (i == 2) {
+				yd++;
 				xd--;
 			}
 		}

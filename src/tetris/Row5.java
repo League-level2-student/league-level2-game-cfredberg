@@ -36,6 +36,30 @@ public class Row5 extends Block {
 		checkRights1.add(new Location(1,2));
 		checkRights1.add(new Location(1,3));
 		checkRights1.add(new Location(1,4));
+		checkLefts2 = new ArrayList<Location>();
+		checkLefts3 = new ArrayList<Location>();
+		checkRights2 = new ArrayList<Location>();
+		checkRights3 = new ArrayList<Location>();
+		checkBottoms2 = new ArrayList<Location>();
+		checkBottoms3 = new ArrayList<Location>();
+		checkRights2.add(new Location(5,0));
+		checkBottoms2.add(new Location(4,1));
+		checkBottoms2.add(new Location(3,1));
+		checkBottoms2.add(new Location(2,1));
+		checkBottoms2.add(new Location(1,1));
+		checkBottoms2.add(new Location(0,1));
+		checkLefts2.add(new Location(-1,0));
+		checkLefts3.add(new Location(-1,0));
+		checkLefts3.add(new Location(-1,1));
+		checkLefts3.add(new Location(-1,2));
+		checkLefts3.add(new Location(-1,3));
+		checkLefts3.add(new Location(-1,4));
+		checkBottoms3.add(new Location(0,5));
+		checkRights3.add(new Location(1,0));
+		checkRights3.add(new Location(1,1));
+		checkRights3.add(new Location(1,2));
+		checkRights3.add(new Location(1,3));
+		checkRights3.add(new Location(1,4));
 		// TODO Auto-generated constructor stub
 	}
 	

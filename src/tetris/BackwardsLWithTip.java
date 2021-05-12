@@ -15,6 +15,9 @@ public class BackwardsLWithTip extends Block {
 		checkLefts = new ArrayList<Location>();
 		checkRights = new ArrayList<Location>();
 		checkBottoms = new ArrayList<Location>();
+		checkLefts1 = new ArrayList<Location>();
+		checkRights1 = new ArrayList<Location>();
+		checkBottoms1 = new ArrayList<Location>();
 		checkRights.add(new Location(1,0));
 		checkRights.add(new Location(1,1));
 		checkBottoms.add(new Location(0,2));
@@ -22,6 +25,33 @@ public class BackwardsLWithTip extends Block {
 		checkLefts.add(new Location(-2,2));
 		checkLefts.add(new Location(-2,1));
 		checkLefts.add(new Location(-1,0));
+		checkLefts1.add(new Location(-1,0));
+		checkLefts1.add(new Location(0,1));
+		checkBottoms1.add(new Location(0,1));
+		checkBottoms1.add(new Location(1,2));
+		checkBottoms1.add(new Location(2,2));
+		checkRights1.add(new Location(3,1));
+		checkRights1.add(new Location(2,0));
+		checkLefts2 = new ArrayList<Location>();
+		checkRights2 = new ArrayList<Location>();
+		checkBottoms2 = new ArrayList<Location>();
+		checkLefts3 = new ArrayList<Location>();
+		checkRights3 = new ArrayList<Location>();
+		checkBottoms3 = new ArrayList<Location>();
+		checkRights2.add(new Location(1,0));
+		checkRights2.add(new Location(1,1));
+		checkBottoms2.add(new Location(0,2));
+		checkBottoms2.add(new Location(-1,3));
+		checkLefts2.add(new Location(-2,2));
+		checkLefts2.add(new Location(-2,1));
+		checkLefts2.add(new Location(-1,0));
+		checkLefts3.add(new Location(-1,0));
+		checkLefts3.add(new Location(0,1));
+		checkBottoms3.add(new Location(0,1));
+		checkBottoms3.add(new Location(1,2));
+		checkBottoms3.add(new Location(2,2));
+		checkRights3.add(new Location(3,1));
+		checkRights3.add(new Location(2,0));
 		// TODO Auto-generated constructor stub
 	}
 	
