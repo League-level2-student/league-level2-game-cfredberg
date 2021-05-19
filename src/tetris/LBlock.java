@@ -131,12 +131,41 @@ public class LBlock extends Block {
 	public void mapping() {
 		int xd = row;
 		int yd = column;
-		for (int i = 0; i < 4; i++) {
-			if (i < 3) {
-				GamePanelTetris.map[xd][yd] = color;
-				yd++;
-			}else {
-				GamePanelTetris.map[xd+1][yd-1] = color;
+		if (GamePanelTetris.blockState == 0) {
+			for (int i = 0; i < 4; i++) {
+				if (i < 3) {
+					GamePanelTetris.map[xd][yd] = color;
+					yd++;
+				}else {
+					GamePanelTetris.map[xd+1][yd-1] = color;
+				}
+			}
+		}else if (GamePanelTetris.blockState == 1) {
+			for (int i = 0; i < 4; i++) {
+				if (i < 3) {
+					GamePanelTetris.map[xd][yd] = color;
+					xd++;
+				}else {
+					GamePanelTetris.map[xd-1][yd-1] = color;
+				}
+			}
+		}else if (GamePanelTetris.blockState == 2) {
+			for (int i = 0; i < 4; i++) {
+				if (i < 3) {
+					GamePanelTetris.map[xd][yd] = color;
+					yd--;
+				}else {
+					GamePanelTetris.map[xd-1][yd+1] = color;
+				}
+			}
+		}else {
+			for (int i = 0; i < 4; i++) {
+				if (i < 3) {
+					GamePanelTetris.map[xd][yd] = color;
+					xd--;
+				}else {
+					GamePanelTetris.map[xd+1][yd+1] = color;
+				}
 			}
 		}
 	}

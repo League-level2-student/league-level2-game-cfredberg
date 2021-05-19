@@ -65,7 +65,7 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	Block block;
 	
-	int blockState;
+	static int blockState;
 	
 	final int STATE_1 = 0;
 	final int STATE_2 = 1;

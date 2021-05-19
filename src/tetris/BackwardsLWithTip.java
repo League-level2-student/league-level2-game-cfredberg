@@ -119,14 +119,27 @@ public class BackwardsLWithTip extends Block {
 	public void mapping() {
 		int xd = row;
 		int yd = column;
-		for (int i = 0; i < 4; i++) {
-			GamePanelTetris.map[xd][yd] = color;
-			if (i == 0) {
-				yd++;
-			}else if (i == 1) {
-				xd--;
-			}else if (i == 2) {
-				yd++;
+		if (GamePanelTetris.blockState == 0 || GamePanelTetris.blockState == 2) {
+			for (int i = 0; i < 4; i++) {
+				GamePanelTetris.map[xd][yd] = color;
+				if (i == 0) {
+					yd++;
+				}else if (i == 1) {
+					xd--;
+				}else if (i == 2) {
+					yd++;
+				}
+			}
+		}else if (GamePanelTetris.blockState == 1 || GamePanelTetris.blockState == 3) {
+			for (int i = 0; i < 4; i++) {
+				GamePanelTetris.map[xd][yd] = color;
+				if (i == 0) {
+					xd++;
+				}else if (i == 1) {
+					yd--;
+				}else if (i == 2) {
+					xd++;
+				}
 			}
 		}
 	}

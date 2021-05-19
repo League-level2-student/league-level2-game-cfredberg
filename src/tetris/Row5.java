@@ -97,9 +97,16 @@ public class Row5 extends Block {
 	public void mapping() {
 		int xd = row;
 		int yd = column;
-		for (int i = 0; i < 5; i++) {
-			GamePanelTetris.map[xd][yd] = color;
-			xd++;
+		if (GamePanelTetris.blockState == 0 || GamePanelTetris.blockState == 2) {
+			for (int i = 0; i < 5; i++) {
+				GamePanelTetris.map[xd][yd] = color;
+				xd++;
+			}
+		}else {
+			for (int i = 0; i < 5; i++) {
+				GamePanelTetris.map[xd][yd] = color;
+				yd--;
+			}
 		}
 	}
 	
