@@ -58,6 +58,9 @@ public class TBlock extends Block {
 	
 	@Override
 	public void draw(Graphics g) {
+		stopPlace = 22;
+		checkRight = 9;
+		checkLeft = 1;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);
@@ -76,6 +79,9 @@ public class TBlock extends Block {
 	
 	@Override
 	public void draw1(Graphics g) {
+		stopPlace = 23;
+		checkRight = 7;
+		checkLeft = 0;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);
@@ -94,6 +100,9 @@ public class TBlock extends Block {
 	
 	@Override
 	public void draw2(Graphics g) {
+		stopPlace = 24;
+		checkRight = 8;
+		checkLeft = 0;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);
@@ -112,6 +121,9 @@ public class TBlock extends Block {
 	
 	@Override
 	public void draw3(Graphics g) {
+		stopPlace = 24;
+		checkRight = 9;
+		checkLeft = 2;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.BLACK);

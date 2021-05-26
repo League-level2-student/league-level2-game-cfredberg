@@ -59,6 +59,9 @@ public class BackwardsL extends Block {
 	//Main block is top block
 	@Override
 	public void draw(Graphics g) {
+		stopPlace = 22;
+		checkRight = 9;
+		checkLeft = 1;
 		int d = 0;
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 4; i++) {
@@ -73,6 +76,9 @@ public class BackwardsL extends Block {
 	
 	@Override
 	public void draw1(Graphics g) {
+		stopPlace = 23;
+		checkRight = 7;
+		checkLeft = 0;
 		int d = 0;
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 4; i++) {
@@ -87,6 +93,9 @@ public class BackwardsL extends Block {
 	
 	@Override
 	public void draw2(Graphics g) {
+		stopPlace = 24;
+		checkRight = 8;
+		checkLeft = 0;
 		int d = 0;
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 4; i++) {
@@ -101,6 +110,9 @@ public class BackwardsL extends Block {
 	
 	@Override
 	public void draw3(Graphics g) {
+		stopPlace = 24;
+		checkRight = 9;
+		checkLeft = 2;
 		int d = 0;
 		g.setColor(Color.CYAN);
 		for (int i = 0; i < 4; i++) {
@@ -146,7 +158,7 @@ public class BackwardsL extends Block {
 					GamePanelTetris.map[xd][yd] = color;
 					xd++;
 				}else {
-					GamePanelTetris.map[xd-1][yd] = color;
+					GamePanelTetris.map[xd-1][yd+1] = color;
 				}
 			}
 		}else if (GamePanelTetris.blockState == 2) {

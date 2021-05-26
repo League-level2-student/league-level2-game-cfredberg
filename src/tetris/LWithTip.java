@@ -57,6 +57,9 @@ public class LWithTip extends Block {
 	
 	@Override
 	public void draw(Graphics g) {
+		stopPlace = 22;
+		checkRight = 8;
+		checkLeft = 0;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.GREEN);
@@ -74,6 +77,9 @@ public class LWithTip extends Block {
 	
 	@Override
 	public void draw1(Graphics g) {
+		stopPlace = 23;
+		checkRight = 9;
+		checkLeft = 2;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.GREEN);

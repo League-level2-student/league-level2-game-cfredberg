@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -58,6 +59,8 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 	
 	int x = 10;
 	int y = 10;
+	
+	int bgCheck = 0;
 	
 	boolean cont = true;
 	
@@ -250,6 +253,22 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		}
 		
 		bottomCollisions();
+		
+		for (int i = 0; i < 25; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (map[j][i] != BACKGROUND) {
+					bgCheck++;
+				}
+			}
+			if (bgCheck == 10) {
+				for (int j = 0; j < 10; j++) {
+					map[j][i] = BACKGROUND;
+				}
+			}
+			bgCheck = 0;
+		}
+		System.out.println(bgCheck);
+		
 	}
 	
 	public void bottomCollisions() {

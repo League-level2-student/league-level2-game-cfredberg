@@ -65,6 +65,9 @@ public class Row5 extends Block {
 	
 	@Override
 	public void draw(Graphics g) {
+		stopPlace = 24;
+		checkLeft = 0;
+		checkRight = 5;
 		int d = 0;
 		g.setColor(Color.BLUE);
 		for (int i = 0; i < 5; i++) {
@@ -75,6 +78,9 @@ public class Row5 extends Block {
 	
 	@Override
 	public void draw1(Graphics g) {
+		stopPlace = 20;
+		checkLeft = 0;
+		checkRight = 9;
 		int d = 0;
 		g.setColor(Color.BLUE);
 		for (int i = 0; i < 5; i++) {

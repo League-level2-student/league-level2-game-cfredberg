@@ -57,6 +57,9 @@ public class BackwardsLWithTip extends Block {
 	
 	@Override
 	public void draw(Graphics g) {
+		checkRight = 9;
+		checkLeft = 1;
+		stopPlace = 22;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.MAGENTA);
@@ -74,6 +77,9 @@ public class BackwardsLWithTip extends Block {
 	
 	@Override
 	public void draw1(Graphics g) {
+		checkRight = 7;
+		checkLeft = 0;
+		stopPlace = 21;
 		int xd = 0;
 		int yd = 0;
 		g.setColor(Color.MAGENTA);
