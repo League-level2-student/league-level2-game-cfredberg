@@ -145,11 +145,20 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		g.drawString("INSTRUCTIONS", 15, 90);
 		
 		g.setFont(smallInstructions);
-		g.drawString("Use the left and right arrow keys", 25, 200);
+		g.drawString("Use the LEFT and RIGHT arrow keys", 15, 200);
 		g.drawString("to move each tile left and right.", 30, 215);
 		
+		g.drawString("  Use the SPACE BAR to make the", 25, 270);
+		g.drawString("    block jump to the bottom.", 30, 285);
+		
+		g.drawString("   Use the UP arrow key to make", 25, 340);//33
+		g.drawString("            the block rotate.", 30, 355);
+		
+		g.drawString("      Use the DOWN arrow key", 25, 410);
+		g.drawString("   to make the block speed up.", 30, 425);
+		
 		g.setColor(Color.ORANGE);
-		g.drawString("Press 'Escape' to go back to the menu.", 0, 560);
+		g.drawString("Press 'ESCAPE' to go back to the menu.", 0, 560);
 	}
 	
 	public void drawGameState (Graphics g) {
@@ -254,6 +263,11 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		
 		bottomCollisions();
 		
+		eliminateRow();
+	}
+	
+	public void eliminateRow() {
+		int storeY = 0;
 		for (int i = 0; i < 25; i++) {
 			for (int j = 0; j < 10; j++) {
 				if (map[j][i] != BACKGROUND) {
@@ -263,12 +277,21 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 			if (bgCheck == 10) {
 				for (int j = 0; j < 10; j++) {
 					map[j][i] = BACKGROUND;
+					storeY = i;
+				}
+				for (int y = storeY; y >= 0; y--) {
+					for (int x = 0; x < 10; x++) {
+						if (y == 0) {
+							map[x][0] = BACKGROUND;
+						}else {
+							int colorStore = map[x][y-1];
+							map[x][y] = colorStore;
+						}
+					}
 				}
 			}
 			bgCheck = 0;
 		}
-		System.out.println(bgCheck);
-		
 	}
 	
 	public void bottomCollisions() {
@@ -437,6 +460,14 @@ public class GamePanelTetris extends JPanel implements ActionListener, KeyListen
 		
 		g.setColor(new Color(0, 52, 179));
 		g.fillRect(0, 0, Tetris.WIDTH, Tetris.HEIGHT);
+		
+		g.setColor(Color.BLACK);
+		
+		g.setFont(header);
+		g.drawString("GAME OVER", 25, 200);
+		
+		g.setFont(smallInstructions);
+		g.drawString("Press 'M' to go back to the menu.", 15, 230);
 	}
 	
 	public void randomShapePicker() {
